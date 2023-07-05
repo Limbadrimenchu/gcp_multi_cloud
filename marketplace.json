@@ -16,11 +16,6 @@
     "billing_data": {
       "label": "BigQuery Dataset"
     }
-  },
-  "models": [
-    {
-      "name": "marketplace_multicloud_billing_export",
-      "connection_constant": "MULTICLOUD_BILLING_EXPORT_CONNECTION_NAME"
-    }
-  ]
+  }
+  
 }
