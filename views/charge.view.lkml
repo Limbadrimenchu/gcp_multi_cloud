@@ -1,23 +1,22 @@
 view: charge {
-  sql_table_name: `@{MULTICLOUD_BILLING_EXPORT_PROJECT}.@{MULTICLOUD_BILLING_EXPORT_DATASET}.charge` ;;
+  sql_table_name: `@{ops-01-380317}.@{billing_data}.unified_billing_table` ;;
   drill_fields: [charge_id]
 
   dimension: charge_id {
     hidden: yes
-    primary_key: yes
     type: string
-    sql: ${TABLE}.charge_id ;;
+    sql: ${TABLE}.ChargeKey ;;
   }
 
   dimension: charge_description {
     type: string
-    sql: ${TABLE}.charge_description ;;
+    sql: ${TABLE}.ChargeKey ;;
   }
 
   dimension: charge_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.charge_key ;;
+    sql: ${TABLE}.ChargeKey ;;
   }
 
 }
