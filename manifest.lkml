@@ -1,16 +1,11 @@
 project_name: "multicloud_billing_bq_export"
 
-constant: MULTICLOUD_BILLING_EXPORT_CONNECTION_NAME {
-  export: override_required
-  value: "your_bq_connection"
-}
-
-constant: MULTICLOUD_BILLING_EXPORT_PROJECT {
+constant: ops-01-380317 {
   export: override_required
   value: "your_bq_project"
 }
 
-constant: MULTICLOUD_BILLING_EXPORT_DATASET {
+constant: billing_data {
   export: override_required
   value: "your_bq_dataset"
 }
