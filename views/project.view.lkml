@@ -1,23 +1,23 @@
 view: project {
-  sql_table_name: `@{MULTICLOUD_BILLING_EXPORT_PROJECT}.@{MULTICLOUD_BILLING_EXPORT_DATASET}.project`
+  sql_table_name: `@{ops-01-380317}.@{billing_data}.unified_billing_table`
     ;;
   drill_fields: [project_id]
 
   dimension: project_id {
     primary_key: yes
     type: string
-    sql: ${TABLE}.project_id ;;
+    sql: ${TABLE}.ProjectKey ;;
   }
 
   dimension: project_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.project_key ;;
+    sql: ${TABLE}.ProjectKey ;;
   }
 
   dimension: project_name {
     type: string
-    sql: ${TABLE}.project_name ;;
+    sql: ${TABLE}.Project ;;
   }
 
   measure: count {
