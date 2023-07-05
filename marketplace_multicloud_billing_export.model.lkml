@@ -1,4 +1,4 @@
-connection: "@{bq-connection}"
+connection: "bq-connection"
 
 include: "/views/*.view.lkml"
 include: "/explores/*.explore"
