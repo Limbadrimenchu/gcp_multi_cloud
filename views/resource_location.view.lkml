@@ -1,20 +1,20 @@
 view: resource_location {
-  sql_table_name: `@{MULTICLOUD_BILLING_EXPORT_PROJECT}.@{MULTICLOUD_BILLING_EXPORT_DATASET}.resource_location`
+  sql_table_name: `@{ops-01-380317}.@{billing_data}.unified_billing_table`
     ;;
 
   dimension: resource_location {
     type: string
-    sql: ${TABLE}.resource_location ;;
+    sql: ${TABLE}.ResourceLocationKey ;;
   }
 
   dimension: resource_location_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.resource_location_key ;;
+    sql: ${TABLE}.ResourceLocationKey ;;
   }
 
   dimension: resource_region {
     type: string
-    sql: ${TABLE}.resource_region ;;
+    sql: ${TABLE}.ResourceLocationKey ;;
   }
 }
