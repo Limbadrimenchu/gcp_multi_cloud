@@ -1,6 +1,6 @@
 view: billing_account {
   sql_table_name: `@{ops-01-380317}.@{billing_data}.unified_billing_table` ;;
-  drill_fields: [BillingAccountKey]
+  drill_fields: [billing_account_id]
 
   dimension: billing_account_id {
     primary_key: yes
