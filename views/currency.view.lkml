@@ -1,16 +1,16 @@
 view: currency {
-  sql_table_name: `@{MULTICLOUD_BILLING_EXPORT_PROJECT}.@{MULTICLOUD_BILLING_EXPORT_DATASET}.currency`
+  sql_table_name: `@{ops-01-380317}.@{billing_data}.unified_billing_table`
     ;;
 
   dimension: currency {
     type: string
-    sql: ${TABLE}.currency ;;
+    sql: ${TABLE}.CurrencykEY ;;
   }
 
   dimension: currency_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.currency_key ;;
+    sql: ${TABLE}.CurrencykEY ;;
   }
 
 }
