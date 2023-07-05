@@ -1,4 +1,4 @@
-connection: "@{MULTICLOUD_BILLING_EXPORT_CONNECTION_NAME}"
+connection: "@{bq-connection}"
 
 include: "/views/*.view.lkml"
 include: "/explores/*.explore"
