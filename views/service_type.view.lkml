@@ -1,22 +1,22 @@
 view: service_type {
-  sql_table_name: `@{MULTICLOUD_BILLING_EXPORT_PROJECT}.@{MULTICLOUD_BILLING_EXPORT_DATASET}.service_type`
+  sql_table_name: `@{ops-01-380317}.@{billing_data}.unified_billing_table`
     ;;
 
   dimension: service_category {
     type: string
-    sql: CASE WHEN ${TABLE}.service_category = '???-Unknown' THEN 'Other' ELSE  ${TABLE}.service_category END ;;
+    sql: CASE WHEN ${TABLE}.Service_type_key = '???-Unknown' THEN 'Other' ELSE  ${TABLE}.Service_type_key END ;;
     drill_fields: [service_type]
   }
 
   dimension: service_type {
     type: string
-    sql: CASE WHEN ${TABLE}.service_type = '???-Unknown' THEN 'Other' ELSE  ${TABLE}.service_type END ;;
+    sql: CASE WHEN ${TABLE}.Service_type_key = '???-Unknown' THEN 'Other' ELSE  ${TABLE}.Service_type_key END ;;
   }
 
   dimension: service_type_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.service_type_key ;;
+    sql: ${TABLE}.Service_type_key ;;
   }
 
   measure: count {
