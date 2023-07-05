@@ -1,11 +1,11 @@
 view: unified_cloud_billing {
-  sql_table_name:  `@{MULTICLOUD_BILLING_EXPORT_PROJECT}.@{MULTICLOUD_BILLING_EXPORT_DATASET}.unified_cloud_billing_date_impute`
+  sql_table_name:  `@{ops-01-380317}.@{billing_data}.unified_billing_table`
     ;;
 
   dimension: billing_account_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.billing_account_key ;;
+    sql: ${TABLE}.BillingAccountKey ;;
   }
 
   dimension_group: billing_end {
@@ -20,7 +20,7 @@ view: unified_cloud_billing {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.billing_end_date ;;
+    sql: ${TABLE}.BillingEndDate ;;
   }
 
   dimension_group: billing_start {
@@ -35,31 +35,31 @@ view: unified_cloud_billing {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.billing_start_date ;;
+    sql: ${TABLE}.BillingStartDate ;;
   }
 
   dimension: charge_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.charge_key ;;
+    sql: ${TABLE}.ChargeKey ;;
   }
 
   dimension: charge_type_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.charge_type_key ;;
+    sql: ${TABLE}.ChargeTypeKey ;;
   }
 
   dimension: cloud_provider_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.cloud_provider_key ;;
+    sql: ${TABLE}.cloudProviderKey ;;
   }
 
   dimension: cost {
     hidden: yes
     type: number
-    sql: ${TABLE}.cost ;;
+    sql: ${TABLE}.Net_Cost ;;
     value_format_name: usd
   }
 
@@ -86,17 +86,17 @@ view: unified_cloud_billing {
   }
 
   measure: total_AWS_cost {
-    group_label: "AWS"
-    label: "Total AWS Cost"
+    group_label: "colo"
+    label: "Total colo Cost"
     type: sum
     sql: ${cost} ;;
-    filters: [cloud_provider.cloud_provider: "AWS"]
+    filters: [cloud_provider.cloud_provider: "Colo"]
     value_format_name: usd
   }
 
   measure: percent_of_spend_aws {
-    group_label: "AWS"
-    label: "AWS Percent of Spend"
+    group_label: "colo"
+    label: "colo Percent of Spend"
     sql: 1.0*${total_AWS_cost}/NULLIF(${total_cost},0) ;;
     value_format_name: percent_1
   }
@@ -120,25 +120,25 @@ view: unified_cloud_billing {
   dimension: currency_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.currency_key ;;
+    sql: ${TABLE}.CurrencykEY ;;
   }
 
   dimension: product_name_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.product_name_key ;;
+    sql: ${TABLE}.ProductNameKey ;;
   }
 
   dimension: project_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.project_key ;;
+    sql: ${TABLE}.ProjectKey ;;
   }
 
   dimension: resource_location_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.resource_location_key ;;
+    sql: ${TABLE}.ResourceLocationKey ;;
   }
 
   dimension: row_key {
@@ -151,13 +151,13 @@ view: unified_cloud_billing {
   dimension: service_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.service_key ;;
+    sql: ${TABLE}.Service_key ;;
   }
 
   dimension: service_type_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.service_type_key ;;
+    sql: ${TABLE}.Service_type_key ;;
   }
 
   dimension_group: usage_end {
@@ -206,7 +206,7 @@ view: unified_cloud_billing {
   dimension: usage_unit_of_measure_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.usage_unit_of_measure_key ;;
+    sql: ${TABLE}.Usage_UoM ;;
   }
 
 }
