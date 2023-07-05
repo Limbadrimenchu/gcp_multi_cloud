@@ -1,5 +1,5 @@
 view: service {
-  sql_table_name: `@{MULTICLOUD_BILLING_EXPORT_PROJECT}.@{MULTICLOUD_BILLING_EXPORT_DATASET}.service`
+  sql_table_name: `@{ops-01-380317}.@{billing_data}.unified_billing_table`
     ;;
   drill_fields: [service_id]
 
@@ -7,22 +7,22 @@ view: service {
     hidden: yes
     primary_key: yes
     type: string
-    sql: CASE WHEN LENGTH(${TABLE}.service_id) = 0 THEN 'SNS Project' ELSE ${TABLE}.service_id END ;;
+    sql: CASE WHEN LENGTH(${TABLE}.Service_key) = 0 THEN 'SNS Project' ELSE ${TABLE}.Service_key END ;;
   }
 
   dimension: resource_project {
     view_label: "Resource & Projects"
     label: "Resource/Project"
     type: string
-    sql: CASE WHEN COALESCE(${project.project_name},${service_id}) = '<missing>'
+    sql: CASE WHEN COALESCE(${project.project_name},${Service_key}) = '<missing>'
               THEN 'SNS Project'
-              ELSE COALESCE(${project.project_name},${service_id}) END ;;
+              ELSE COALESCE(${project.project_name},${Service_key}) END ;;
   }
 
   dimension: service_key {
     hidden: yes
     type: string
-    sql: ${TABLE}.service_key ;;
+    sql: ${TABLE}.Service_key ;;
   }
 
   measure: count {
