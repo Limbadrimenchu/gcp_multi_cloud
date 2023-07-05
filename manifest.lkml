@@ -1,4 +1,4 @@
-project_name: "multicloud_billing_bq_export"
+project_name: "gcp_multi_cloud"
 
 constant: bq-connection {
   export: override_required
