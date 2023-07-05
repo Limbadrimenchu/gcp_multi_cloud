@@ -6,14 +6,14 @@
     "tagline": "Consolidate your billing and platform utilization data in a centralized data warehouse."
   },
   "constants": {
-    "MULTICLOUD_BILLING_EXPORT_CONNECTION_NAME": {
+    "connection": {
       "label": "BigQuery Connection Name",
       "value_constraint": "connection"
     },
-    "MULTICLOUD_BILLING_EXPORT_PROJECT": {
+    "ops-01-380317": {
       "label": "BigQuery Project"
     },
-    "MULTICLOUD_BILLING_EXPORT_DATASET": {
+    "billing_data": {
       "label": "BigQuery Dataset"
     }
   },
